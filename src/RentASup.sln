@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentASup.Console\rent-a-sup", "rent-a-sup.csproj", "{8D609F78-3D9D-4B06-8765-E5C8474DAB9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rent-a-sup", "RentASup.Console\RentASup.csproj", "{8D609F78-3D9D-4B06-8765-E5C8474DAB9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
