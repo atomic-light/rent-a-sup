@@ -1,6 +1,7 @@
+namespace RentASup.SUPManagement;
 
-
-namespace RentASup;
+using RentASup.Bestand;
+using RentASup.Gepaeck;
 
 internal class RentSupWorkflow(Standort standort)
 {

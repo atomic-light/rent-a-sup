@@ -7,15 +7,15 @@ internal class KundeRegistrierenWorkflow
         Kunde kunde;        
         kunde = KundeRegistrieren();
         ConsoleWrapper.WriteLine($"Kunde erfolgreich erfasst.");
+        ConsoleWrapper.WriteLine("");
         kunde.print();
         return kunde;
     }
 
 
     private Kunde KundeRegistrieren()
-    {
-        ConsoleWrapper.PrintHeader();        
-        ConsoleWrapper.WriteLine("Kundendaten erfassen");
+    {        
+        ConsoleWrapper.PrintTitle("Kundendaten erfassen");
         ConsoleWrapper.WriteLine("Name:");
         var kundenName = ConsoleWrapper.ReadString();
         ConsoleWrapper.WriteLine("Addresse:");

@@ -1,10 +1,8 @@
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-
-namespace RentASup;
+namespace RentASup.Bestand;
 
 internal class Standort
 {
+    internal int Id { get; set; }
     internal string Name { get; set; }
     internal string Adresse { get; set; }
     internal int AnzahlZweierSUP { get; set; } = 50;

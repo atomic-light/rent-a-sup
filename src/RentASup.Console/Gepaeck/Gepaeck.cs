@@ -1,4 +1,6 @@
-namespace RentASup;
+namespace RentASup.Gepaeck;
+
+using RentASup.Bestand;
 
 internal class Gepaeck
 {

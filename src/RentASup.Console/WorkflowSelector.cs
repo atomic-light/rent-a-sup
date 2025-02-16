@@ -1,6 +1,9 @@
 
 namespace RentASup;
 
+using RentASup.Bestand;
+using RentASup.SUPManagement;
+
 internal static class WorkflowSelector
 {
     internal static void Execute(int workflowId, Standort standort, IReadOnlyList<Kunde> kunden)
@@ -15,7 +18,14 @@ internal static class WorkflowSelector
                 var kundeRegistrierenWorkflow = new KundeRegistrierenWorkflow();
                 var registrierteKunden = kunden.ToList();
                 registrierteKunden.Add(kundeRegistrierenWorkflow.Execute());
-                break;  
+                break;
+            case 2:
+                var bestandPruefenWorkflow = new BestandPruefenWorkflow();
+                ConsoleWrapper.PrintTitle("SUP Bestand");
+                bestandPruefenWorkflow.Execute(standort);
+                break;                
+            case 3:
+                break; 
         }   
     }
 }

@@ -1,4 +1,4 @@
-namespace RentASup;
+namespace RentASup.SUPManagement;
 
 internal enum SUPTyp
 {

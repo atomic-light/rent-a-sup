@@ -1,6 +1,6 @@
-using System.Reflection.Metadata;
+namespace RentASup.SUPManagement;
 
-namespace RentASup;
+using System.Reflection.Metadata;
 
 internal class Sicherheitscheck
 {

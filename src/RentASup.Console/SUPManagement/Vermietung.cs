@@ -1,7 +1,7 @@
-using System.Data.Common;
-using System.Diagnostics;
+namespace RentASup.SUPManagement;
 
-namespace RentASup;
+using RentASup.Bestand;
+using RentASup.Gepaeck;
 
 internal class Vermietung
 {

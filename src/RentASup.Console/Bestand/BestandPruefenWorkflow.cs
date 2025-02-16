@@ -1,4 +1,4 @@
-namespace RentASup;
+namespace RentASup.Bestand;
 
 internal class BestandPruefenWorkflow{
 
