@@ -4,14 +4,14 @@ namespace RentASup;
 
 internal class Sicherheitscheck
 {
-    internal int Kundennummer { get;set; }
+    internal int KundenId { get;set; }
     internal DateTime Datum { get; set; }
     internal bool Bestaetigt { get; set; }
     internal Blob PDF { get; set; }
 
-    public Sicherheitscheck(int kundennummer)
+    public Sicherheitscheck(int kundenId)
     {
-        Kundennummer = kundennummer;
+        KundenId = kundenId;
         Datum = DateTime.Now;
     }
 

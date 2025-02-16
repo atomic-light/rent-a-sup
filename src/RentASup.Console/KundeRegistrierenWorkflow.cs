@@ -4,32 +4,18 @@ internal class KundeRegistrierenWorkflow
 {
     internal Kunde Execute()
     {
-        ConsoleWrapper.WriteLine("Bestehender Kunde? (Y/N)");
-        var bestehenderKunde = ConsoleWrapper.ReadBoolean();
-
-        Kunde kunde;
-        if (bestehenderKunde)
-        {
-            ConsoleWrapper.WriteLine("Kundennummer:");
-            var Kundennummer = ConsoleWrapper.ReadInteger();
-            kunde = SucheKunde(Kundennummer);
-        }
-        else
-        {
-            kunde = KundeRegistrieren();
-        }
-
+        Kunde kunde;        
+        kunde = KundeRegistrieren();
+        ConsoleWrapper.WriteLine($"Kunde erfolgreich erfasst.");
         kunde.print();
         return kunde;
     }
 
-    private Kunde SucheKunde(int kundennummer)
-    {
-        return new Kunde(kundennummer, "Max Muster", "Musterstrasse 1", 1111, "Musterhausen");
-    }
 
     private Kunde KundeRegistrieren()
     {
+        ConsoleWrapper.PrintHeader();        
+        ConsoleWrapper.WriteLine("Kundendaten erfassen");
         ConsoleWrapper.WriteLine("Name:");
         var kundenName = ConsoleWrapper.ReadString();
         ConsoleWrapper.WriteLine("Addresse:");
@@ -41,5 +27,4 @@ internal class KundeRegistrierenWorkflow
 
         return new Kunde(1000, kundenName, kundenAdresse, plz, ort);
     }
-
 }

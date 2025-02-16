@@ -1,8 +1,5 @@
-using Microsoft.VisualBasic;
-
 namespace RentASup;
 
-public class initialData()
+internal static class Configuration
 {
-    
 }

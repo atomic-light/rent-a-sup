@@ -8,6 +8,6 @@ internal class SUP
 
     internal void Vermieten(Kunde kunde)
     {
-        Console.WriteLine($"SUP {SupId} wurde an Kunde {kunde.Name} vermietet.");
+        ConsoleWrapper.WriteLine($"SUP {SupId} wurde an Kunde {kunde.Name} vermietet.");
     }
 }

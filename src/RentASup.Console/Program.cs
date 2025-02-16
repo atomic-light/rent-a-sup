@@ -1,44 +1,51 @@
-﻿using RentASup;
+﻿using System.ComponentModel;
+using RentASup;
 
 bool running = true;
+
+var standortBeckenried = new Standort { Name = "Beckenried" };
+var standortLuzern = new Standort { Name = "Luzern" };
+
+var kunden = new List<Kunde>();
+
+string[] menuItems = { "SUP Vermietung", "Kunde registrieren", "SUP-Bestand prüfen", "Beenden" };
+int selectedIndex = 0;
+
 while (running)
 {
-    ConsoleWrapper.WriteLine("Rent-a-SUP");
-    ConsoleWrapper.WriteLine("1. SUP-Verleih anfragen");
-    ConsoleWrapper.WriteLine("2. Kunde registrieren");
-    ConsoleWrapper.WriteLine("3. SUP Bestand prüfen");
-    ConsoleWrapper.WriteLine("4. Beenden");
-    Console.Write("Bitte wählen Sie eine Option: ");
+    ConsoleWrapper.Clear();
+    ConsoleWrapper.PrintHeader();
 
-    var standortBeckenried = new Standort { Name = "Beckenried" };
-    var standortLuzern = new Standort { Name = "Luzern" };
-
-    int choice = ConsoleWrapper.ReadInteger();
-    
-    switch (choice)
+    for (int i = 0; i < menuItems.Length; i++)
     {
-        case 1:
-            var rentSupWorkflow = new RentSupWorkflow(standortBeckenried);
-            rentSupWorkflow.Execute();
-            break;
-        case 2:
-            var kundeRegistrierenWorkflow = new KundeRegistrierenWorkflow();
-            kundeRegistrierenWorkflow.Execute();
-            break;
-        case 3:
-        
-            break;
-        case 4:
-            running = false;
-            break;
-        default:
-            Console.WriteLine("Ungültige Auswahl. Bitte erneut versuchen.");
-            break;
+        if (i == selectedIndex)
+        {
+            ConsoleWrapper.SetForegroundColor(ConsoleColor.Yellow);
+            ConsoleWrapper.WriteLine($"> {menuItems[i]} <");
+            ConsoleWrapper.ResetColor();
+        }
+        else
+        {
+            ConsoleWrapper.WriteLine($"  {menuItems[i]}");
+        }
     }
-    
-    if (running)
+
+    ConsoleKeyInfo key = ConsoleWrapper.ReadKey();
+    switch (key.Key)
     {
-        ConsoleWrapper.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren...");
-        ConsoleWrapper.ReadString();
+        case ConsoleKey.UpArrow:
+            selectedIndex = (selectedIndex == 0) ? menuItems.Length - 1 : selectedIndex - 1;
+            break;
+        case ConsoleKey.DownArrow:
+            selectedIndex = (selectedIndex == menuItems.Length - 1) ? 0 : selectedIndex + 1;
+            break;
+        case ConsoleKey.Enter:
+            if (selectedIndex == menuItems.Length - 1) running = false;
+
+            WorkflowSelector.Execute(selectedIndex, standortBeckenried, kunden);
+
+            ConsoleWrapper.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren...");
+            ConsoleWrapper.ReadKey();
+            break;
     }
 }

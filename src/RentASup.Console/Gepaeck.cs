@@ -14,16 +14,16 @@ internal class Gepaeck
 
     internal void Transportieren()
     {
-        Console.WriteLine("Gepäck wird transportiert.");
+        ConsoleWrapper.WriteLine("Gepäck wird transportiert.");
     }
 
     internal void Markieren()
     {
-        Console.WriteLine("Gepäck wurde markiert.");
+        ConsoleWrapper.WriteLine("Gepäck wurde markiert.");
     }
     
     internal void Registrieren()
     {
-        Console.WriteLine($"Gepäck wurde registriert. Gepäck ID: {Id}");
+        ConsoleWrapper.WriteLine($"Gepäck wurde registriert. Gepäck ID: {Id}");
     }
 }

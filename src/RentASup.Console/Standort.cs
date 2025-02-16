@@ -20,14 +20,13 @@ internal class Standort
 
     private bool BestandEinerPruefen(int anzahl)
     {
-        ConsoleWrapper.WriteLine($"1er SUP Bestand: {AnzahlEinerSUP}");
         if (AnzahlEinerSUP >= anzahl)
         {
             return true;
         }
         else
         {
-            ConsoleWrapper.WriteLine($"Zu weniger 1er SUP an Lager. Bestand: {AnzahlEinerSUP}");
+            ConsoleWrapper.WriteLine($"Zu weniger 1er SUP an Lager.");
             return false;
         }
     }
@@ -35,20 +34,20 @@ internal class Standort
     
     private bool BestandZweierPruefen(int anzahl)
     {
-        ConsoleWrapper.WriteLine($"2er SUP Bestand: {AnzahlZweierSUP}");
         if (AnzahlZweierSUP >= anzahl)
         {
             return true;
         }
         else
         {
-            ConsoleWrapper.WriteLine($"Zu weniger 2er SUP an Lager. Bestand: {AnzahlZweierSUP}");
+            ConsoleWrapper.WriteLine($"Zu weniger 2er SUP an Lager.");
             return false;
         }
     }
 
     internal void Print()
     {
+        ConsoleWrapper.WriteLine("Aktueller SUP Bestand");
         ConsoleWrapper.WriteLine($"1er SUPs: {AnzahlEinerSUP}");
         ConsoleWrapper.WriteLine($"2er SUPs: {AnzahlZweierSUP}");
     }
@@ -59,12 +58,23 @@ internal class Standort
         {
             AnzahlEinerSUP -= anzahl;
         }
+        else
+        {
+            ConsoleWrapper.WriteLine("Zu wenig 1er SUP an Lager.");
+            Print();
+        }
     }
+
     internal void RemoveZweierSUP(int anzahl)
     {
         if (AnzahlZweierSUP > anzahl && anzahl > 0)
         {
             AnzahlZweierSUP -= anzahl;
+        }
+        else
+        {
+            ConsoleWrapper.WriteLine("Zu wenig 2er SUP an Lager.");
+            Print();
         }
     }
 

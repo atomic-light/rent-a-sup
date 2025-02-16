@@ -1,7 +1,31 @@
+
+using Figgle;
+
 namespace RentASup;
 
 internal static class ConsoleWrapper
 {
+    internal static void PrintHeader()
+    {
+        WriteLine(FiggleFonts.Standard.Render("Rent-a-SUP"));
+    }
+
+    internal static void PrintTitle(string title)
+    {
+        Console.Clear();
+        Console.WriteLine(FiggleFonts.Standard.Render($"{title}"));
+    }
+
+    internal static ConsoleKeyInfo ReadKey()
+    {
+        return Console.ReadKey();
+    }
+    
+    internal static void Clear()
+    {
+        Console.Clear();
+    }
+
     internal static int ReadInteger()
     {
         var countSUPs = Console.ReadLine();
@@ -38,6 +62,16 @@ internal static class ConsoleWrapper
     internal static string ReadString()
     {
         return Console.ReadLine();
+    }
+
+    internal static void SetForegroundColor(ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+    }
+
+    internal static void ResetColor()
+    {
+        Console.ResetColor();
     }
 }
 

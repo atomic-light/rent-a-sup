@@ -2,9 +2,8 @@ namespace RentASup;
 
 internal class BestandPruefenWorkflow{
 
-    internal void Execute()
+    internal void Execute(Standort standort)
     {
+        standort.Print();
     }
-
-
 }
